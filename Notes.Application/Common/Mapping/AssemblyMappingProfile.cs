@@ -6,9 +6,9 @@ namespace Notes.Application.Common.Mapping
     public class AssemblyMappingProfile : Profile
     {
         public AssemblyMappingProfile(Assembly assembly) =>
-            AppltMappingFromAssembly(assembly);
+            ApplyMappingFromAssembly(assembly);
 
-        private void AppltMappingFromAssembly(Assembly assembly)
+        private void ApplyMappingFromAssembly(Assembly assembly)
         {
             var types = assembly.GetExportedTypes()
                 .Where(type => type.GetInterfaces()
