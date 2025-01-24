@@ -6,13 +6,12 @@ using Notes.Application.Interfaces;
 
 namespace Notes.Application.Notes.Queries.GetNoteList
 {
-    public class GetNoteLIstQueryHandler
-        : IRequestHandler<GetNoteListQuery, NoteListVm>
+    public class GetNoteListQueryHandler : IRequestHandler<GetNoteListQuery, NoteListVm>
     {
         private readonly INotesDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetNoteLIstQueryHandler(INotesDbContext dbContext, IMapper mapper)
+        public GetNoteListQueryHandler(INotesDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;

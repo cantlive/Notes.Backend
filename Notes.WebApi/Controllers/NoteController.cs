@@ -13,6 +13,7 @@ namespace Notes.WebApi.Controllers
     public class NoteController : BaseController
     {
         private readonly IMapper _mapper;
+
         public NoteController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
@@ -23,6 +24,7 @@ namespace Notes.WebApi.Controllers
                 UserId = UserId
             };
             var vm = await Mediator.Send(query);
+
             return Ok(vm);
         }
 
@@ -35,6 +37,7 @@ namespace Notes.WebApi.Controllers
                 Id = id
             };
             var vm = await Mediator.Send(query);
+
             return Ok(vm);
         }
 
@@ -44,6 +47,7 @@ namespace Notes.WebApi.Controllers
             var command = _mapper.Map<CreateNoteCommand>(createNoteDto);
             command.UserId = UserId;
             var noteId = await Mediator.Send(command);
+
             return Ok(noteId);
         }
 
@@ -53,6 +57,7 @@ namespace Notes.WebApi.Controllers
             var command = _mapper.Map<UpdateNoteCommand>(updateNoteDto);
             command.UserId = UserId;
             await Mediator.Send(command);
+
             return NoContent();
         }
 
@@ -65,6 +70,7 @@ namespace Notes.WebApi.Controllers
                 UserId = UserId
             };
             await Mediator.Send(command);
+
             return NoContent();
         }
     }
